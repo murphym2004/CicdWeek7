@@ -21,9 +21,20 @@ public class PersonController {
         return service.create(person);
     }
     @GetMapping
-    public List<Person> all() { return service.findAll(); }
+    public List<Person> all() { return service.findAll(); }//list all ids
+
     @GetMapping("/{id}")
-    public Person byEmployeeId(@PathVariable String id) {
+    public Person byEmployeeId(@PathVariable String id) {//find by id
         return service.findByEmployeeId(id);
+    }
+    @PutMapping("updatePerson")
+    public Person update(@Valid @RequestBody Person person) {
+        return service.UpdateEmployee(person);
+
+    }
+
+    @DeleteMapping("deletePerson")
+    public void delete(@Valid @RequestBody Person person) {
+        service.DeleteEmployee(person);
     }
 }
