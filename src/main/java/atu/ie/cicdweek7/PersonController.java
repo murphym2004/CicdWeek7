@@ -32,7 +32,6 @@ public class PersonController {
         return service.UpdateEmployee(person);
 
     }
-
     @DeleteMapping("deletePerson")
     public void delete(@Valid @RequestBody Person person) {
         service.DeleteEmployee(person);
